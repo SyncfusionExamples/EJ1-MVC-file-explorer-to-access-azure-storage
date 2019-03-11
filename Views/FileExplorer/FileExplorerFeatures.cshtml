@@ -1,0 +1,24 @@
+﻿@using SyncfusionMvcApplication7
+@{
+    ViewBag.Title = "FileExplorer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="layout">
+@*"https://filebrowsercontent.blob.core.windows.net/blob1/Content/"- Specifies the folder path of azure blob storage *@
+@*"/FileExplorer/FileActionDefault"- Specifies the URL of Ajax handling method, which is defined at controller part *@
+@(Html.EJ().FileExplorer("fileExplorer")
+    .FileTypes("*.png, *.gif, *.jpg, *.jpeg, *.docx")
+    .Path("https://filebrowsercontent.blob.core.windows.net/blob1/Content/")
+    .AjaxAction(@Url.Content("/FileExplorer/FileActionDefault"))
+    .Width("900px")
+    .Height("400px")
+    .Layout(LayoutType.LargeIcons)
+    )
+
+</div>
+<style>
+    .layout{
+        margin-top:10px;
+    }
+</style>
